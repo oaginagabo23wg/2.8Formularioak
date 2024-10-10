@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+</head>
+
+<body class="container mt-4">
+    <!-- 1 ariketa -->
+    <h1>1</h1>
+    <form id="myForm">
+        <div class="mb-3">
+            <label for="name" class="form-label">Izen-Abizenak</label>
+            <input type="text" id="name">
+        </div>
+        <div class="mb-3">
+            <label for="address" class="form-label">Helbidea</label>
+            <input type="text" id="address">
+        </div>
+        <button type="submit" class="btn btn-primary">Egiaztatu</button>
+    </form><br>
+
+
+    <script>
+        // 1 ariketa
+        document.getElementById('myForm').addEventListener('submit', function (event) {
+            let name = document.getElementById('name').value;
+            let address = document.getElementById('address').value;
+
+            if (name === '') {
+                name = 'Ez dago beteta';
+            }
+            if (address === '') {
+                address = 'Ez dago beteta';
+            }
+
+            alert(`Izen-Abizenak: ${name}\nHelbidea: ${address}`);
+        });
+    </script>
+
+    <!-- 2 ariketa -->
+    <h1>2</h1>
+
+    <div class="mb-3">
+        <label for="squareSelect" class="form-label">Aukeratu Karratua</label>
+        <select id="squareSelect" class="form-select">
+            <option value="1">Karratua 1</option>
+            <option value="2">Karratua 2</option>
+            <option value="3">Karratua 3</option>
+            <option value="4">Karratua 4</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label for="colorSelect" class="form-label">Aukeratu Kolorea</label>
+        <select id="colorSelect" class="form-select">
+            <option value="red">Gorria</option>
+            <option value="blue">Urdina</option>
+            <option value="green">Berdea</option>
+            <option value="yellow">Horia</option>
+        </select>
+    </div>
+
+    <button id="applyButton" class="btn btn-primary">Aplikatu Aldaketak</button>
+
+    <div id="square" class="karratua"></div>
+
+    <script>
+        document.getElementById('applyButton').addEventListener('click', function() {
+            const selectedSquare = document.getElementById('squareSelect').value;
+            const selectedColor = document.getElementById('colorSelect').value;
+            const square = document.getElementById('square');
+
+            // Karratua hautatu
+            square.style.display = 'block'; // Karratua bistaratzea
+            square.style.backgroundColor = selectedColor;
+
+            // Tamaina ezartzea
+            switch (selectedSquare) {
+                case '1':
+                    square.style.width = '10px';
+                    square.style.height = '10px';
+                    square.textContent = "Karratua 1";
+                    break;
+                case '2':
+                    square.style.width = '20px';
+                    square.style.height = '10px';
+                    square.textContent = "Karratua 2";
+                    break;
+                case '3':
+                    square.style.width = '10px';
+                    square.style.height = '50px';
+                    square.textContent = "Karratua 3";
+                    break;
+                case '4':
+                    square.style.width = '50px';
+                    square.style.height = '10px';
+                    square.textContent = "Karratua 4";
+                    break;
+            }
+        });
+    </script>
+
+
+</body>
+
+</html>
